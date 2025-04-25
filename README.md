@@ -20,14 +20,14 @@ cd the-recipe-book
 
 ### 2. Install dependencies
 
--Client (Next.js):
+- Client (Next.js):
 
 ```bash
 cd client
 npm install
 ```
 
--Server (Express):
+- Server (Express):
 
 ```bash
 cd ../server
@@ -50,9 +50,9 @@ npm run dev
 The app will be running at: http://localhost:3001
 
 ### 5. Test the App
--Open the app in the browser
+- Open the app in the browser
 
--Use the filters to find specific recipes
+- Use the filters to find specific recipes
 
--Click on a recipe to see details
+- Click on a recipe to see details
 
