@@ -35,7 +35,7 @@ recipeRoutes.get("/available", async (req, res) => {
 })
 
 
-recipeRoutes.get("info/:id", async (req, res) => {
+recipeRoutes.get("/info/:id", async (req, res) => {
     const {id} = req.params
     const url=`${api_url}/lookup.php?i=${id}`
 
