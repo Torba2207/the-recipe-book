@@ -10,6 +10,7 @@ interface Recipe {
   interface RecipesListProps {
     recipes: Recipe[];
     className?: string;
+    category?: string;
   }
 
 export default function MealsOfCategory({ recipes, ...props }: RecipesListProps) {
@@ -18,7 +19,7 @@ export default function MealsOfCategory({ recipes, ...props }: RecipesListProps)
             <div className="column">
                 {recipes.slice(0,4).map((meal) => (
                     <Link
-                        href={{ pathname: "/", query: { category: meal.strCategory } }} 
+                        href={{ pathname: "/", query: { category: props.category } }} 
                         key={meal.idMeal}
                         className="col-md-4"
                         >
