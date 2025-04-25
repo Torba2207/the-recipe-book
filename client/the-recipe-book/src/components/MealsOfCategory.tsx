@@ -1,3 +1,4 @@
+import Link from "next/link";
 interface Recipe {
     idMeal: string;
     strMeal: string;
@@ -16,7 +17,11 @@ export default function MealsOfCategory({ recipes, ...props }: RecipesListProps)
         <div className={props.className}>
             <div className="column">
                 {recipes.slice(0,4).map((meal) => (
-                    <div key={meal.idMeal} className="col-md-4">
+                    <Link
+                        href={{ pathname: "/", query: { category: meal.strCategory } }} 
+                        key={meal.idMeal}
+                        className="col-md-4"
+                        >
                         <div className="card mb-4">
                             <img src={meal.strMealThumb} className="card-img-top" alt={meal.strMeal} />
                             <div className="card-body">
@@ -25,7 +30,7 @@ export default function MealsOfCategory({ recipes, ...props }: RecipesListProps)
                                 {/*<a href={`/recipes/${meal.idMeal}`} className="btn btn-primary">View Recipe</a>*/}
                             </div>
                         </div>
-                    </div>
+                    </Link>
                 ))}
             </div>
         </div>
