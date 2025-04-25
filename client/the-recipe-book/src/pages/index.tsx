@@ -68,6 +68,11 @@ export default function Home() {
     if (loading) {
         return <LoadingScreen />;
     }
+    
+    if(!recipes || recipes.length === 0)
+        return (<div className="p-4">No recipes found</div>)
+
+
     return(<>
         <Head>
             <title>The Recipe Book {filter.category+" "+filter.country+" "+filter.ingredient}</title>
