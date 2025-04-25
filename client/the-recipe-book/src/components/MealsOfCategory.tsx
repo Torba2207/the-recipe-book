@@ -28,7 +28,6 @@ export default function MealsOfCategory({ recipes, ...props }: RecipesListProps)
                             <div className="card-body">
                                 <h5 className="card-title">{meal.strMeal}</h5>
                                 <p className="card-text">{meal.strCategory}</p>
-                                {/*<a href={`/recipes/${meal.idMeal}`} className="btn btn-primary">View Recipe</a>*/}
                             </div>
                         </div>
                     </Link>
