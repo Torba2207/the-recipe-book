@@ -1,9 +1,11 @@
 import Head from "next/head";
+import { useRouter } from "next/router";
 import { useState,useEffect } from "react";
 import RecipesList from "@/components/RecipesList";
 import LoadingScreen from "@/components/LoadingScreen";
 
 export default function Home() {
+    const router = useRouter();
     const [recipes, setRecipes] = useState([]);
     const [filter,setFilter]=useState({
         ingredient: "",
@@ -12,9 +14,10 @@ export default function Home() {
       })
 
     const[filterApply,setFilterApply]=useState(false)
-
+    
     
     const [loading, setLoading] = useState(true);
+
 
     const handleFilterChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = event.target;
@@ -63,8 +66,29 @@ export default function Home() {
 
     useEffect(() => {
         fetchRecipes();
-    }, [filterApply]);
+    }, [filterApply,router.query]);
+
+    useEffect(() => {
+        if (!router.isReady) return;
+        console.log(router.query.toString())
+        
+        const { ingredient, country, category } = router.query;
+        setFilter({
+        ingredient: ingredient?.toString() || "",
+        country: country?.toString() || "",
+        category: category?.toString() || "",
+        });
+        console.log(filter)
+        setFilterApply(!filterApply)
+        if(filter.category!="undefined" && filter.category!="")
+            fetchRecipes()
+        console.log(router.query)
+        
+      }, [router.isReady,router.query]);
+
+
     console.log(recipes)
+
     if (loading) {
         return <LoadingScreen />;
     }

@@ -85,7 +85,7 @@ export default function RecipePage() {
         {/* Optional: ingredients table */}
       </div>
       <aside  className="lg:w-1/4 p-4 border-l border-gray-200">
-        {meals!==null && <MealsOfCategory className={"space-y-4"} recipes={meals} />}
+        {meals!==null && <MealsOfCategory className={"space-y-4"} recipes={meals} category={recipe.strCategory}/>}
         
       </aside>
       </div>
